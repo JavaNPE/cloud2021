@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.youliao.springcloud.dao.PaymentDao">
+    <!--新增所有列-->
+    <insert id="create" parameterType="Payment" keyProperty="id" useGeneratedKeys="true">
+        insert into cloud2020.payment(serial) values(#{serial})
+    </insert>
+
+    <resultMap id="BaseResultMap" type="com.youliao.springcloud.entities.Payment">
+        <!--@Table payment-->
+        <id property="id" column="id" jdbcType="BIGINT"/>
+        <id property="serial" column="serial" jdbcType="VARCHAR"/>
+    </resultMap>
+    <!--查询单个-->
+    <select id="getPyamentById" resultMap="BaseResultMap">
+        select
+          id, serial
+        from cloud2020.payment
+        where id = #{id}
+    </select>
+</mapper>
