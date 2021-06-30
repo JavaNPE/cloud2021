@@ -16,7 +16,6 @@ import javax.annotation.Resource;
  * @since 2021-06-29 08:10:20
  */
 @RestController
-//@RequestMapping("payment")
 @Slf4j
 public class PaymentController {
     /**
@@ -32,26 +31,24 @@ public class PaymentController {
      * @return 单条数据
      */
     @PostMapping(value = "/payment/create")
-    public CommonResult create(Payment payment) {
+    public CommonResult create(@RequestBody Payment payment) {
         int result = paymentService.create(payment);
         log.info("**************插入结果:" + result);
         if (result > 0) {
             return new CommonResult(200, "插入数据库成功", result);
         } else {
             return new CommonResult(444, "插入数据库失败", null);
-
         }
     }
+
     @GetMapping(value = "/payment/get/{id}")
     public CommonResult getPaymentById(@PathVariable("id") Long id) {
         Payment payment = paymentService.getPaymentById(id);
         log.info("**************插入结果:" + payment);
-        if (payment!= null) {
+        if (payment != null) {
             return new CommonResult(200, "查询成功", payment);
         } else {
-            return new CommonResult(444, "没有对应记录，查询ID:"+id, null);
-
+            return new CommonResult(444, "没有对应记录，查询ID:" + id, null);
         }
     }
-
 }
