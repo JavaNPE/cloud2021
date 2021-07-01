@@ -1,6 +1,7 @@
 package com.youliao.springcloud.controller;
 
 
+
 import com.youliao.springcloud.entities.CommonResult;
 import com.youliao.springcloud.entities.Payment;
 import com.youliao.springcloud.service.PaymentService;
@@ -48,11 +49,11 @@ public class PaymentController {
     @GetMapping(value = "/payment/get/{id}")
     public CommonResult getPaymentById(@PathVariable("id") Long id) {
         Payment payment = paymentService.getPaymentById(id);
-        log.info("**************插入结果:" + payment);
+        log.info("**************查询结果:" + payment);
         if (payment != null) {
             return new CommonResult(200, "查询成功，serverPort：" + serverPort, payment);
         } else {
-            return new CommonResult(444, "没有对应记录，查询ID:" + id, null);
+            return new CommonResult(444, "没有对应记录，查询ID: " + id, null);
         }
     }
 }

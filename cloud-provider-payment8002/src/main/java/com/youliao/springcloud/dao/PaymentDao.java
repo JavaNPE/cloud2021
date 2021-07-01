@@ -1,12 +1,8 @@
 package com.youliao.springcloud.dao;
 
-
 import com.youliao.springcloud.entities.Payment;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-
-import java.util.List;
-import java.util.concurrent.locks.Lock;
 
 /**
  * (Payment)表数据库访问层

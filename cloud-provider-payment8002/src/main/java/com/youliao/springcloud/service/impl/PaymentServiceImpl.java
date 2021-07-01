@@ -1,12 +1,11 @@
 package com.youliao.springcloud.service.impl;
-
 import com.youliao.springcloud.dao.PaymentDao;
 import com.youliao.springcloud.entities.Payment;
-import com.youliao.springcloud.service.PaymentService;
 import org.springframework.stereotype.Service;
 
+import com.youliao.springcloud.service.PaymentService;
+
 import javax.annotation.Resource;
-import java.util.List;
 
 /**
  * (Payment)表服务实现类
