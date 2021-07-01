@@ -2,6 +2,7 @@ package com.youliao.springcloud;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 /**
  * @Author Dali
@@ -10,7 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @Description
  */
 @SpringBootApplication
-//@EnableEurekaClient
+@EnableEurekaClient
 //@RibbonClient(name = "CLOUD-PAYMENT-SERVICE",configuration=MySelfRule.class)
 public class OrderMain80 {
     public static void main(String[] args) {
