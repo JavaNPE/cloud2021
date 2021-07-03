@@ -21,7 +21,9 @@ import javax.annotation.Resource;
 @Slf4j
 public class OrderController {
     //    public static final String PAYMENT_URL = "http://localhost:8001";
-    public static final String PAYMENT_URL = "http://cloud-payment-service";
+    //public static final String PAYMENT_URL = "http://cloud-payment-service";
+    public static final String PAYMENT_URL = "http://CLOUD-PAYMENT-SERVICE"; //为了与@RibbonClient(name = "CLOUD-PAYMENT-SERVICE", ...)的name大小写保持一致
+
 
     @Resource
     private RestTemplate restTemplate;
