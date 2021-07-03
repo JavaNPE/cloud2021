@@ -29,6 +29,8 @@ public class OrderController {
     @GetMapping("/consumer/payment/create")
     public CommonResult<Payment> create(Payment payment) {
         return restTemplate.postForObject(PAYMENT_URL + "/payment/create", payment, CommonResult.class);
+        //postForObject/ postForEntity的区别：
+        //return restTemplate.postForEntity(PAYMENT_URL + "/payment/create", payment, CommonResult.class).getBody();
     }
 
     /**
@@ -52,6 +54,7 @@ public class OrderController {
     public CommonResult<Payment> getPayment2(@PathVariable("id") Long id) {
         ResponseEntity<CommonResult> entity = restTemplate.getForEntity(PAYMENT_URL + "/payment/get/   " + id, CommonResult.class);
         if (entity.getStatusCode().is2xxSuccessful()) {
+            log.info("***日志信息***" + entity.getStatusCode() + "\t" + entity.getHeaders());  //可以获取到一些信息，比如：响应状态码、响应头
             return entity.getBody();
         } else {
             return new CommonResult<>(444, "操作失败");
