@@ -20,6 +20,7 @@ spring:
           uri: lb://cloud-payment-service
           predicates:
             - Path=/payment/lb/**   #断言,路径相匹配的进行路由
+            - After=2021-07-12T11:59:40.969+08:00[Asia/Shanghai]
 
 
 eureka:
