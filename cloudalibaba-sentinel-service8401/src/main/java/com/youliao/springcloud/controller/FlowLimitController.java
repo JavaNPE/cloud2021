@@ -34,7 +34,7 @@ public class FlowLimitController {
 
 
     /**
-     * 降级策略实战:RT
+     * 降级策略实战:RT、异常比例
      *
      * @return
      */
@@ -45,9 +45,16 @@ public class FlowLimitController {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+/*
         log.info("testD 测试RT");
 
         return "------testD";
+*/
+
+        log.info("testD 测试异常比例");
+        int age = 10 / 0;
+        return "------testD";
+
     }
 }
 
