@@ -28,8 +28,26 @@ public class FlowLimitController {
 
     @GetMapping("/testB")
     public String testB() {
-        log.info(Thread.currentThread().getName()+"\t"+"...testB");
+        log.info(Thread.currentThread().getName() + "\t" + "...testB");
         return "------testB";
+    }
+
+
+    /**
+     * 降级策略实战:RT
+     *
+     * @return
+     */
+    @GetMapping("/testD")
+    public String testD() {
+        try {
+            TimeUnit.SECONDS.sleep(1);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        log.info("testD 测试RT");
+
+        return "------testD";
     }
 }
 
